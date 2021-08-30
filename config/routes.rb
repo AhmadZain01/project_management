@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
   devise_for :managers
+ 
   namespace :managers do
+    resources :managers
     resources :employees 
   end
 

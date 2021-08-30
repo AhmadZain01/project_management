@@ -14,6 +14,9 @@
           <li class="nav-item">
             <%= link_to 'Employees', managers_employees_path, class: 'nav-link bg-light' %>
           </li>
+          <li class="nav-item">
+            <%= link_to 'Manger', managers_managers_path, class: 'nav-link bg-light' %>
+          </li>
       <% else %>
           <li class="nav-item">
               <%= link_to 'Sign In', new_manager_session_path, class: 'nav-link' %>
