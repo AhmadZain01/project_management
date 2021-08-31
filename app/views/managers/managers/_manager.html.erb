@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <table class=" table table-bordered table-hover">
+    <thead>
+      <tr class="color-red">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th class="text-center postion_sticky">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @managers.each do |manager| %>
+        <tr>
+          <td><%= manager.first_name %></td>
+          <td><%= manager.email %></td>
+          <td><%= manager.role.name if manager.role.present?%></td>
+          <td class="text-center postion_sticky admin-postion ">
+            <%= link_to  managers_manager_path(manager), class: 'btn btn-primary btn-xs','data-toggle': 'tooltip', 'data-placement':'top', title: 'View manager' do %>
+              <i class="fa fa-eye" ></i>
+            <% end %>
+            <%= link_to edit_managers_manager_path(manager), class: 'btn btn-success btn-xs','data-toggle': 'tooltip', 'data-placement':'top', title: 'Edit manager' do %>
+              <i class="fa fa-pencil-square-o" ></i>
+            <% end %>
+            <%= link_to  managers_manager_path(manager), class: 'btn btn-danger btn-xs', 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Delete Manager', method: :delete, data: { confirm: 'Are you sure?'} do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

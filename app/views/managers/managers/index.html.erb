@@ -1,0 +1,27 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox ">
+        <div class="ibox-title">
+          <h5>Manager</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <div class="row margin-btn-bottom">
+            <div class="col-sm-12">
+              <%= link_to 'Add Manager', new_managers_manager_path, class: "btn btn-primary  add-admin-btn pull-right" %>
+            </div>
+          </div>
+         <%= render  "manager" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

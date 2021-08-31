@@ -1,0 +1,45 @@
+<div class = "row">
+<div class= "col-md-12">
+<%= link_to "Add Emplooye", new_managers_employee_path, class: "btn btn-primary float-right"%>
+</div>
+<div class="table-responsive">
+  <table class=" table table-bordered table-hover">
+    <thead>
+      <tr class="color-red">
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>city</th>
+      
+        <th>address</th>
+        <th>country</th>
+        <th>dob</th>
+        <th class="text-center postion_sticky">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.first_name %></td>
+          <td><%= employee.last_name %></td>
+          <td><%= employee.city %></td>
+          
+          <td><%= employee.address %></td>
+          <td><%= employee.address %></td>
+          <td><%= employee.dob %></td>
+          <td class="text-center postion_sticky employee-postion ">
+            <%= link_to  managers_employee_path(employee), class: 'btn btn-primary btn-xs','data-toggle': 'tooltip', 'data-placement':'top', title: 'View Employee' do %>
+              <i class="fa fa-eye" ></i>
+            <% end %>
+            <%= link_to edit_managers_employee_path(employee), class: 'btn btn-success btn-xs','data-toggle': 'tooltip', 'data-placement':'top', title: 'Edit Employee' do %>
+              <i class="fa fa-pencil-square-o" ></i>
+            <% end %>
+            <%= link_to  managers_employee_path(employee), class: 'btn btn-danger btn-xs', 'data-toggle': 'tooltip', 'data-placement':'top', title: 'Delete Employee', method: :delete, data: { confirm: 'Are you sure?'} do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

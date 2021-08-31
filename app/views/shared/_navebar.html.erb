@@ -1,0 +1,27 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<a class="navbar-brand" href="/">Project Management App</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav ml-auto">
+      <% if manager_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Sign Out', destroy_manager_session_path, method: :delete, class: 'nav-link bg-light' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Employees', managers_employees_path, class: 'nav-link bg-light' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Manger', managers_managers_path, class: 'nav-link bg-light' %>
+          </li>
+      <% else %>
+          <li class="nav-item">
+              <%= link_to 'Sign In', new_manager_session_path, class: 'nav-link' %>
+          </li>
+      <% end %>
+  </ul>
+</div>
+</nav>

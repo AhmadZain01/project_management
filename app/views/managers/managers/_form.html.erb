@@ -1,0 +1,53 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h3 class="m-t-none m-b">Manager</h3>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12 b-r">
+              <%= form_with(model: [:managers, manager], local: true) do |f| %>
+                <% if manager.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(manager.errors.count, "error") %> prohibited this admin from being saved:</h2>
+                    <ul>  
+                      <% manager.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="col-md-2"></div>
+                  <div class="col-md-8 "> 
+                    <div class="form-group">
+                      <%= f.label :first_name, "First Name" %>
+                      <%= f.text_field :first_name, autofocus: true, required: true, class: "form-control", placeholder: "First Name" %>
+                    </div>
+
+                    <div class="form-group">
+                      <%= f.label :last_name, "Last Name" %>
+                      <%= f.text_field :last_name, required: true, class: "form-control", placeholder: "Last Name" %>
+                    </div>
+
+                    <div class="form-group">
+                      <%= f.label :email, "Email" %>
+                      <%= f.email_field :email, autocomplete: "email",  required: true, placeholder: 'Email', class: 'form-control' %>
+                    </div>
+
+                    <div class="form-group">
+                      <%= f.label :role_id, "Role" %>
+                      <%= f.collection_select :role_id, Role.all, :id, :name, {}, { class: 'form-control' } %>
+                    </div>
+
+                    <%= f.submit 'Submit', class: "btn btn-success submit" %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
